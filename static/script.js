@@ -61,6 +61,7 @@ function generateInputFields() {
 function loadSample(type) {
     document.getElementById("code").value = samples[type];
     document.getElementById("output").className = "output-neutral";
+    generateInputFields();
 }
 
 function runCode() {
@@ -104,4 +105,8 @@ function runCode() {
     });
 }
 
-window.onload = generateInputFields;
+document.getElementById("code").addEventListener("input", generateInputFields);
+window.onload = () => {
+    generateInputFields();
+    document.getElementById("code").addEventListener("input", generateInputFields);
+};
