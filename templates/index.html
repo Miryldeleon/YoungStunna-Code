@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoungStunna Code</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <header class="navbar">
+        <div class="brand">YOUNGSTUNNA CODE</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#keywords">Keywords</a>
+            <a href="#demo">Demo</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">GEN Z-INSPIRED MINI COMPILER / INTERPRETER</p>
+            <h1>Flex your syntax.<br>Lapag your output.</h1>
+            <p class="hero-text">
+                YoungStunna Code is a custom programming language inspired by Filipino Gen Z street vocabulary,
+                built to demonstrate lexical analysis, syntax analysis, semantic analysis, and interpretation.
+            </p>
+            <div class="hero-buttons">
+                <a href="#demo" class="btn btn-primary">Try Demo</a>
+                <a href="#keywords" class="btn btn-secondary">View Syntax</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-card-top">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="window-title">sample.ysc</span>
+            </div>
+            <pre class="hero-code">safe p;
+safe roksi;
+p = 10;
+roksi = p + 5;
+ebas roksi;</pre>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="section-heading">
+            <p class="section-label">ABOUT</p>
+            <h2>Street energy meets compiler theory.</h2>
+        </div>
+        <div class="about-grid">
+            <div class="glass-card">
+                <h3>What it is</h3>
+                <p>
+                    YoungStunna Code is a mini compiler/interpreter project built in Python and deployed through Flask.
+                    It accepts source code, checks validity, and executes correct programs in the browser.
+                </p>
+            </div>
+            <div class="glass-card">
+                <h3>What it demonstrates</h3>
+                <p>
+                    The project covers the major phases of language processing: tokenization, parsing, semantic validation,
+                    and program execution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="keywords">
+        <div class="section-heading">
+            <p class="section-label">KEYWORDS</p>
+            <h2>The core vocabulary of YoungStunna Code.</h2>
+        </div>
+        <div class="keyword-grid">
+            <div class="keyword-card">
+                <span class="keyword">safe</span>
+                <span class="meaning">declare variable</span>
+            </div>
+            <div class="keyword-card">
+                <span class="keyword">sah</span>
+                <span class="meaning">input value</span>
+            </div>
+            <div class="keyword-card">
+                <span class="keyword">ebas</span>
+                <span class="meaning">output / print</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">PIPELINE</p>
+            <h2>How the language runs.</h2>
+        </div>
+        <div class="pipeline">
+            <div class="pipe-node">Code</div>
+            <div class="pipe-line"></div>
+            <div class="pipe-node">Lexer</div>
+            <div class="pipe-line"></div>
+            <div class="pipe-node">Parser</div>
+            <div class="pipe-line"></div>
+            <div class="pipe-node">Semantic</div>
+            <div class="pipe-line"></div>
+            <div class="pipe-node">Interpreter</div>
+            <div class="pipe-line"></div>
+            <div class="pipe-node">Output</div>
+        </div>
+    </section>
+
+<section class="section" id="demo">
+    <div class="section-heading">
+        <p class="section-label">LIVE DEMO</p>
+        <p class="section-desc"> Live execution of YoungStunna Code with lexical, syntax, semantic, and runtime validation.
+        </p>
+        <h2>Run YoungStunna Code in the browser.</h2>
+    </div>
+
+    <div class="demo-toolbar">
+        <button class="chip" onclick="loadSample('basic')">Basic</button>
+        <button class="chip" onclick="loadSample('input')">Input</button>
+        <button class="chip" onclick="loadSample('math')">Arithmetic</button>
+        <button class="chip" onclick="loadSample('error')">Error Case</button>
+    </div>
+
+    <div class="demo-grid">
+        <div class="editor-panel">
+            <div class="panel-top">
+                <span>editor.ysc</span>
+            </div>
+
+            <textarea id="code" oninput="generateInputFields()">safe p;
+safe roksi;
+p = 10;
+roksi = p + 5;
+ebas roksi;</textarea>
+
+            <div id="input-area" class="input-area">
+                <p class="input-title">Program Inputs</p>
+                <div id="input-fields"></div>
+            </div>
+
+            <button class="run-btn" onclick="runCode()">RUN CODE</button>
+        </div>
+
+        <div class="output-panel">
+            <div class="panel-top">
+                <span>output.console</span>
+            </div>
+            <pre id="output" class="output-neutral">Program output will appear here.</pre>
+        </div>
+    </div>
+</section>
+
+    <footer class="footer">
+        <p>YoungStunna Code © 2026</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

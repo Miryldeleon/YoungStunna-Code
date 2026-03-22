@@ -1,0 +1,12 @@
+/* YoungStunna Code demo */
+safe p;
+safe roksi;
+safe bitaw;
+
+p = 50;
+roksi = p + 25;
+bitaw = (roksi * 2) - 10;
+
+ebas p;
+ebas roksi;
+ebas bitaw;
