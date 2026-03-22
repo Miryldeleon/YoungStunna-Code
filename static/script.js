@@ -43,7 +43,7 @@ function generateInputFields() {
         wrapper.className = "input-field-group";
 
         const label = document.createElement("label");
-        label.textContent = `${variable}`;
+        label.textContent = variable;
         label.setAttribute("for", `input-${index}`);
 
         const input = document.createElement("input");
@@ -60,7 +60,11 @@ function generateInputFields() {
 
 function loadSample(type) {
     document.getElementById("code").value = samples[type];
-    document.getElementById("output").className = "output-neutral";
+
+    const output = document.getElementById("output");
+    output.className = "output-neutral";
+    output.innerText = "Program output will appear here.";
+
     generateInputFields();
 }
 
@@ -74,6 +78,7 @@ function runCode() {
         const value = document.getElementById(`input-${i}`)?.value ?? "";
 
         if (value.trim() === "") {
+            output.className = "output-error";
             output.innerText = `Execution failed.\n\nMissing input for '${variables[i]}'.`;
             return;
         }
@@ -81,6 +86,7 @@ function runCode() {
         inputs.push(value);
     }
 
+    output.className = "output-neutral";
     output.innerText = "Running...";
 
     fetch("/run", {
@@ -101,11 +107,11 @@ function runCode() {
         }
     })
     .catch(err => {
+        output.className = "output-error";
         output.innerText = "Execution failed.\n\nError: " + err;
     });
 }
 
-document.getElementById("code").addEventListener("input", generateInputFields);
 window.onload = () => {
     generateInputFields();
     document.getElementById("code").addEventListener("input", generateInputFields);
